@@ -28,11 +28,13 @@
     <vann:preferredNamespaceUri>http://vocab.org/transit/terms/</vann:preferredNamespaceUri>
     <vann:preferredNamespacePrefix>transit</vann:preferredNamespacePrefix>
 
+<!--
     <vann:termGroup rdf:resource="http://vocab.org/transit/terms/termgroup1" />
     <vann:termGroup rdf:resource="http://vocab.org/transit/terms/termgroup2" />
     <vann:termGroup rdf:resource="http://vocab.org/transit/terms/termgroup3" />
     <vann:termGroup rdf:resource="http://vocab.org/transit/terms/termgroup4" />
     <vann:termGroup rdf:resource="http://vocab.org/transit/terms/termgroup5" />
+-->
   </owl:Ontology>
   <cc:Work rdf:about="">
     <cc:license rdf:resource="http://creativecommons.org/licenses/by/1.0/"/>

@@ -16,7 +16,7 @@
     <dc:title xml:lang="en">TRANSIT: A vocabulary for describing transit systems and routes</dc:title>
     <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:date>
     <dc:abstract xml:lang="en">This document describes a vocabulary for describing transit systems, routes, stops and schedules.</dc:abstract>
-    <dc:description xml:lang="en">The TRANSIT schema is based on the General Transit Feed Specification published by Google at http://code.google.com/transit/spec/transit_feed_specification.html</dc:description>
+    <dc:description xml:lang="en">The TRANSIT schema is based on the General Transit Feed Specification published by Google.</dc:description>
     <dc:identifier>http://vocab.org/transit/terms/</dc:identifier>
     <dc:creator><foaf:Person rdf:about="http://iandavis.com/id/me"><foaf:name>Ian Davis</foaf:name></foaf:Person></dc:creator>
     <dc:rights>Copyright 2011 Ian Davis</dc:rights>

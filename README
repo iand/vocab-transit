@@ -1,4 +1,4 @@
-This project contains the source schema for the RDF Schema at http://vocab.org/bio/0.1/
+This project contains the source schema for the RDF Schema at http://vocab.org/transit/
 
 I am sharing the schema in github so others can contribute edits and improvements. It is an experiment to see how well a service like github can work for collaboratively managing schemas.
 

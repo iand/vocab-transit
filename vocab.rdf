@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
+  xmlns:owl="http://www.w3.org/2002/07/owl#" 
+  xmlns:bio="http://vocab.org/transit/terms/" 
+  xmlns:vann="http://purl.org/vocab/vann/" 
+  xmlns:dc="http://purl.org/dc/terms/" 
+  xmlns:cc="http://web.resource.org/cc/" 
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:ov="http://open.vocab.org/terms/"
+  xmlns:label="http://purl.org/net/vocab/2004/03/label#"
+  xmlns:st="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+>
+  <owl:Ontology rdf:about="http://vocab.org/transit/terms/">
+    <dc:title xml:lang="en">TRANSIT: A vocabulary for describing transit systems and routes</dc:title>
+    <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:date>
+    <dc:abstract xml:lang="en">This document describes a vocabulary for describing biographical information about people, both living and dead. </dc:abstract>
+    <dc:description xml:lang="en">The BIO schema contains terms useful for finding out more about people and their backgrounds and has some cross-over into genealogical information. The approach taken is to describe a person's life as a series of interconnected key events, around which other information can be woven. This vocabulary defines the event framework and supplies a set of core event types that cover many use cases, but it is expected that it will be extended in other vocabularies to suit their needs. The intention of this vocabulary is to describe biographical events of people and this intention carries through to the definitions of the properties and classes which are person-centric rather than neutral. For example the Employment event puts the person being employed as the principal agent in the event rather than the employer. Please see https://github.com/iand/vocab-bio for the master version of this schema.</dc:description>
+    <dc:identifier>http://vocab.org/transit/terms/</dc:identifier>
+    <dc:creator><foaf:Person rdf:about="http://iandavis.com/id/me"><foaf:name>Ian Davis</foaf:name></foaf:Person></dc:creator>
+    <dc:rights>Copyright 2011 Ian Davis</dc:rights>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+<!--
+    <ov:discussionList rdf:resource="http://lists.foaf-project.org/mailman/listinfo/foaf-dev" rdfs:label="FOAF-DEV mailing list"/>    
+-->
+    <vann:preferredNamespaceUri>http://vocab.org/transit/terms/</vann:preferredNamespaceUri>
+    <vann:preferredNamespacePrefix>transit</vann:preferredNamespacePrefix>
+
+    <vann:termGroup rdf:resource="http://vocab.org/transit/terms/termgroup1" />
+    <vann:termGroup rdf:resource="http://vocab.org/transit/terms/termgroup2" />
+    <vann:termGroup rdf:resource="http://vocab.org/transit/terms/termgroup3" />
+    <vann:termGroup rdf:resource="http://vocab.org/transit/terms/termgroup4" />
+    <vann:termGroup rdf:resource="http://vocab.org/transit/terms/termgroup5" />
+  </owl:Ontology>
+  <cc:Work rdf:about="">
+    <cc:license rdf:resource="http://creativecommons.org/licenses/by/1.0/"/>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/Text"/>
+  </cc:Work>
+  <cc:License rdf:about="http://creativecommons.org/licenses/by/1.0/">
+    <cc:permits rdf:resource="http://web.resource.org/cc/Reproduction"/>
+    <cc:permits rdf:resource="http://web.resource.org/cc/Distribution"/>
+    <cc:requires rdf:resource="http://web.resource.org/cc/Notice"/>
+    <cc:requires rdf:resource="http://web.resource.org/cc/Attribution"/>
+    <cc:permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/>
+  </cc:License>
+
+
+
+
+  <!-- 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      Classes
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+  -->
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/AccessArrangement">
+    <rdfs:label xml:lang="en">Access Arrangement</rdfs:label>
+    <rdfs:comment xml:lang="en">A type of arrangement for picking up or dropping off passengers from a service stop.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Organization" />
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/Agency">
+    <rdfs:label xml:lang="en">Transit Agency</rdfs:label>
+    <rdfs:comment xml:lang="en">An organization that oversees public transportation for a city or region.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Organization" />
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/BusRoute">
+    <rdfs:label xml:lang="en">Bus Route</rdfs:label>
+    <rdfs:comment xml:lang="en">A public transportation route utilising buses on roads for short- or long-distance travel.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+    <rdfs:subClassOf rdf:resource="http://vocab.org/transit/terms/Route" />
+  </owl:Class>
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/CableCarRoute">
+    <rdfs:label xml:lang="en">Cable Car Route</rdfs:label>
+    <rdfs:comment xml:lang="en">A public transportation route utilising street-level cable cars where the cable runs beneath the car.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+    <rdfs:subClassOf rdf:resource="http://vocab.org/transit/terms/Route" />
+  </owl:Class>
+
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/Fare">
+    <rdfs:label xml:lang="en">Fare</rdfs:label>
+    <rdfs:comment xml:lang="en">A class of fare payable for public transportation.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/FerryRoute">
+    <rdfs:label xml:lang="en">Ferry Route</rdfs:label>
+    <rdfs:comment xml:lang="en">A public transportation route utilising boats for short- or long-distance travel.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+    <rdfs:subClassOf rdf:resource="http://vocab.org/transit/terms/Route" />
+  </owl:Class>
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/FunicularRoute">
+    <rdfs:label xml:lang="en">Funicular Route</rdfs:label>
+    <rdfs:comment xml:lang="en">A public transportation route utilising a rail system designed for steep inclines.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+    <rdfs:subClassOf rdf:resource="http://vocab.org/transit/terms/Route" />
+  </owl:Class>
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/GondalaRoute">
+    <rdfs:label xml:lang="en">Gondala Route</rdfs:label>
+    <rdfs:comment xml:lang="en">A public transportation route utilising aerial cable cars where the car is suspended from the cable.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+    <rdfs:subClassOf rdf:resource="http://vocab.org/transit/terms/Route" />
+  </owl:Class>
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/InboundService">
+    <rdfs:label xml:lang="en">Inbound Service</rdfs:label>
+    <rdfs:comment xml:lang="en">A service that travels in an inbound direction.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </owl:Class>
+  
+  <owl:Class rdf:about="http://vocab.org/transit/terms/MinimumTimeTransfer">
+    <rdfs:label xml:lang="en">Minimum Time Transfer</rdfs:label>
+    <rdfs:comment xml:lang="en">A transfer point between two routes that requires a minimum amount of time between arrival and departure to ensure a connection.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+    <rdfs:subClassOf rdf:resource="http://vocab.org/transit/terms/Transfer" />
+  </owl:Class>
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/OutboundService">
+    <rdfs:label xml:lang="en">Outbound Service</rdfs:label>
+    <rdfs:comment xml:lang="en">A service that travels in an outbound direction.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/RailRoute">
+    <rdfs:label xml:lang="en">Rail Route</rdfs:label>
+    <rdfs:comment xml:lang="en">A public transportation route utilising a rail system for intercity or long-distance travel.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+    <rdfs:subClassOf rdf:resource="http://vocab.org/transit/terms/Route" />
+  </owl:Class>
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/RecommendedTransfer">
+    <rdfs:label xml:lang="en">Timed Transfer</rdfs:label>
+    <rdfs:comment xml:lang="en">A point that is recommended for transfer between two routes.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+    <rdfs:subClassOf rdf:resource="http://vocab.org/transit/terms/Transfer" />
+  </owl:Class>
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/Route">
+    <rdfs:label xml:lang="en">Transit Route</rdfs:label>
+    <rdfs:comment xml:lang="en">A public transportation route.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/Schedule">
+    <rdfs:label xml:lang="en">Schedule</rdfs:label>
+    <rdfs:comment xml:lang="en">A public transport schedule that applies for one or more routes.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/Service">
+    <rdfs:label xml:lang="en">Service</rdfs:label>
+    <rdfs:comment xml:lang="en">A public transport service that operates a route on a given schedule.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/ServiceStop">
+    <rdfs:label xml:lang="en">Service Stop</rdfs:label>
+    <rdfs:comment xml:lang="en">A location where passengers board or disembark from a transit vehicle for a specific service.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/Station">
+    <rdfs:label xml:lang="en">Transit Station</rdfs:label>
+    <rdfs:comment xml:lang="en">A physical structure or area that contains one or more stops.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </owl:Class>
+
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/Stop">
+    <rdfs:label xml:lang="en">Transit Stop</rdfs:label>
+    <rdfs:comment xml:lang="en">A location where passengers board or disembark from a transit vehicle.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/SubwayRoute">
+    <rdfs:label xml:lang="en">Subway Route</rdfs:label>
+    <rdfs:comment xml:lang="en">A public transportation route utilising an underground rail system within a metropolitan area.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+    <rdfs:subClassOf rdf:resource="http://vocab.org/transit/terms/Route" />
+  </owl:Class>
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/TimedTransfer">
+    <rdfs:label xml:lang="en">Timed Transfer</rdfs:label>
+    <rdfs:comment xml:lang="en">A transfer point between two routes where the departing vehicle is expected to wait for the arriving one with sufficient time for a passenger to transfer between routes.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+    <rdfs:subClassOf rdf:resource="http://vocab.org/transit/terms/Transfer" />
+  </owl:Class>
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/TramRoute">
+    <rdfs:label xml:lang="en">Tram Route</rdfs:label>
+    <rdfs:comment xml:lang="en">A public transportation route utilising light rail or street level railed vehicles within a metropolitan area.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+    <rdfs:subClassOf rdf:resource="http://vocab.org/transit/terms/Route" />
+  </owl:Class>
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/Transfer">
+    <rdfs:label xml:lang="en">Transfer</rdfs:label>
+    <rdfs:comment xml:lang="en">A transfer point between two routes.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://vocab.org/transit/terms/UnavailableTransfer">
+    <rdfs:label xml:lang="en">Unavailable Transfer</rdfs:label>
+    <rdfs:comment xml:lang="en">A point where transfer between two routes is not possible despite appearing possible by proximity.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </owl:Class>
+
+  <!-- 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      Properties of an agency
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+  -->
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/timezone">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">Timezone</rdfs:label>
+    <rdfs:comment xml:lang="en">The timezone where a person or organisation is located.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/language">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">Language</rdfs:label>
+    <rdfs:comment xml:lang="en">The primary language used by a person or organisation.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+ 
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/route">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">Route</rdfs:label>
+    <rdfs:comment xml:lang="en">A public transportation route operated by this agency.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/Agency"/>
+    <rdfs:range rdf:resource="http://vocab.org/transit/terms/Route"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <!-- 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      Properties of a stop
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+  -->
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/station">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">Station</rdfs:label>
+    <rdfs:comment xml:lang="en">The station that this stop is part of.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/Stop"/>
+    <rdfs:range rdf:resource="http://vocab.org/transit/terms/Station"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/transfer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">Transfer</rdfs:label>
+    <rdfs:comment xml:lang="en">A transfer point that is associated with this stop.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/Stop"/>
+    <rdfs:range rdf:resource="http://vocab.org/transit/terms/Transfer"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <!-- 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      Properties of a station
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+  -->
+
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/stationStop">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">Station Stop</rdfs:label>
+    <rdfs:comment xml:lang="en">A stop that is associated with this station.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/Station"/>
+    <rdfs:range rdf:resource="http://vocab.org/transit/terms/Stop"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+
+  <!-- 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      Properties of a route
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+  -->
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/agency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">Agency</rdfs:label>
+    <rdfs:comment xml:lang="en">The agency that operates this public transportation route.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/Route"/>
+    <rdfs:range rdf:resource="http://vocab.org/transit/terms/Agency"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/color">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:label xml:lang="en">Color</rdfs:label>
+    <rdfs:comment xml:lang="en">A color associated with this route.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/Route"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/textColor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:label xml:lang="en">Text Color</rdfs:label>
+    <rdfs:comment xml:lang="en">A legible color for text drawn against a background of the color associated with a route.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/Route"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/routeService">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">Route Service</rdfs:label>
+    <rdfs:comment xml:lang="en">A service that operates on this route.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/Route"/>
+    <rdfs:range rdf:resource="http://vocab.org/transit/terms/Service"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+
+  <!-- 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      Properties of a schedule
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+  -->
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/date">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:label xml:lang="en">Date</rdfs:label>
+    <rdfs:comment xml:lang="en">A date on which this service is scheduled to operate.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/Schedule"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/scheduleService">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">Schedule Service</rdfs:label>
+    <rdfs:comment xml:lang="en">A service that operates on this schedule.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/Schedule"/>
+    <rdfs:range rdf:resource="http://vocab.org/transit/terms/Service"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <!-- 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      Properties of a service
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+  -->
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/schedule">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">Schedule</rdfs:label>
+    <rdfs:comment xml:lang="en">The schedule on which this service operates.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/Service"/>
+    <rdfs:range rdf:resource="http://vocab.org/transit/terms/Schedule"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/route">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">Route</rdfs:label>
+    <rdfs:comment xml:lang="en">The route on which this service operates.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/Service"/>
+    <rdfs:range rdf:resource="http://vocab.org/transit/terms/Route"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/headsign">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:label xml:lang="en">Date</rdfs:label>
+    <rdfs:comment xml:lang="en">Text that appears on a sign that identifies the service's destination to passengers.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+
+
+  <!-- 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      Properties of a transfer
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+  -->
+
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/fromStop">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">From Stop</rdfs:label>
+    <rdfs:comment xml:lang="en">A stop where a connection between routes begins.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/Transfer"/>
+    <rdfs:range rdf:resource="http://vocab.org/transit/terms/Stop"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/toStop">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">To Stop</rdfs:label>
+    <rdfs:comment xml:lang="en">A stop where a connection between routes ends.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/Transfer"/>
+    <rdfs:range rdf:resource="http://vocab.org/transit/terms/Stop"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/minTransferTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:label xml:lang="en">Minimum Transfer Time</rdfs:label>
+    <rdfs:comment xml:lang="en">The amount of time (in seconds) that must be available in an itinerary to permit a transfer between routes at this transfer point.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/Transfer"/>
+    <rdfs:range rdf:resource="http://vocab.org/transit/terms/Stop"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <!-- 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      Properties of a servicestop
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+  -->
+
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/stop">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">Stop</rdfs:label>
+    <rdfs:comment xml:lang="en">The physical stop associated with this service stop.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/ServiceStop"/>
+    <rdfs:range rdf:resource="http://vocab.org/transit/terms/Stop"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/service">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">Service</rdfs:label>
+    <rdfs:comment xml:lang="en">The service associated with this service stop.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/ServiceStop"/>
+    <rdfs:range rdf:resource="http://vocab.org/transit/terms/Stop"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/pickup">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">Pick Up</rdfs:label>
+    <rdfs:comment xml:lang="en">The arrangement required for passengers to be picked up at this service stop.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/ServiceStop"/>
+    <rdfs:range rdf:resource="http://vocab.org/transit/terms/AccessArrangement"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/dropoff">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">Drop Off</rdfs:label>
+    <rdfs:comment xml:lang="en">The arrangement required for passengers to be dropped off at this service stop.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/ServiceStop"/>
+    <rdfs:range rdf:resource="http://vocab.org/transit/terms/AccessArrangement"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/arrivalTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:label xml:lang="en">Arrival Time</rdfs:label>
+    <rdfs:comment xml:lang="en">The time of day at which the service arrives at the stop. The time is measured from "noon minus 12h" (effectively midnight, except for days on which daylight savings time changes occur) at the beginning of the service date. For times occurring after midnight on the service date, the time will be a value greater than 24:00:00 in HH:MM:SS local time for the day on which the trip schedule begins. Services that span multiple dates will have stop times greater than 24:00:00. For example, if a service begins at 10:30:00 p.m. and ends at 2:15:00 a.m. on the following day, the stop times would be 22:30:00 and 26:15:00. </rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/ServiceStop"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/departureTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:label xml:lang="en">Departure Time</rdfs:label>
+    <rdfs:comment xml:lang="en">The time of day at which the service departs the stop. The time is measured from "noon minus 12h" (effectively midnight, except for days on which daylight savings time changes occur) at the beginning of the service date. For times occurring after midnight on the service date, the time will be a value greater than 24:00:00 in HH:MM:SS local time for the day on which the trip schedule begins. Services that span multiple dates will have stop times greater than 24:00:00. For example, if a service begins at 10:30:00 p.m. and ends at 2:15:00 a.m. on the following day, the stop times would be 22:30:00 and 26:15:00. </rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/ServiceStop"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/sequence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:label xml:lang="en">Sequence</rdfs:label>
+    <rdfs:comment xml:lang="en">A sequence number for this service stop. Sequence values are non-negative integers and increase along the service however they need not be consecutive.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/ServiceStop"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/distance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:label xml:lang="en">Distance</rdfs:label>
+    <rdfs:comment xml:lang="en">The distance of this service stop from the first stop in sequence.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/ServiceStop"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/serviceStop">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">Service Stop</rdfs:label>
+    <rdfs:comment xml:lang="en">The arrival and departure time of a service at a particular stop.</rdfs:comment>
+    <rdfs:range rdf:resource="http://vocab.org/transit/terms/ServiceStop"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+
+  <!-- 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      Instances
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+  -->
+  <rdf:Description rdf:about="http://vocab.org/transit/terms/disallowed">
+    <rdf:type rdf:resource="http://vocab.org/transit/terms/AccessArrangement" />
+    <rdfs:label xml:lang="en">Disallowed</rdfs:label>
+    <rdfs:comment xml:lang="en">The particular form of access is unavailable.</rdfs:comment>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="http://vocab.org/transit/terms/prearranged">
+    <rdf:type rdf:resource="http://vocab.org/transit/terms/AccessArrangement" />
+    <rdfs:label xml:lang="en">Pre-arranged</rdfs:label>
+    <rdfs:comment xml:lang="en">The particular form of access must be pre-arranged with the transit agency.</rdfs:comment>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="http://vocab.org/transit/terms/standard">
+    <rdf:type rdf:resource="http://vocab.org/transit/terms/AccessArrangement" />
+    <rdfs:label xml:lang="en">Standard</rdfs:label>
+    <rdfs:comment xml:lang="en">The particular form of access has no special arrangement.</rdfs:comment>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://vocab.org/transit/terms/coordinated">
+    <rdf:type rdf:resource="http://vocab.org/transit/terms/AccessArrangement" />
+    <rdfs:label xml:lang="en">Coordinated</rdfs:label>
+    <rdfs:comment xml:lang="en">The particular form of access must be coordinated with the driver.</rdfs:comment>
+  </rdf:Description>
+
+
+  <!-- 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      Properties of a fare
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+  -->
+
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/price">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:label xml:lang="en">Price</rdfs:label>
+    <rdfs:comment xml:lang="en">The price of the fare.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/Fare"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/currency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:label xml:lang="en">Currency</rdfs:label>
+    <rdfs:comment xml:lang="en">The currency of the fare price.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/Fare"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+</rdf:RDF>
+

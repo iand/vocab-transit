@@ -1,11 +1,7 @@
-<Files ~ "^\.html">
-    Order allow,deny
-    Allow from all
-</Files>
+
 Options -MultiViews
+Options -Indexes
 
 RewriteEngine on
 
-RewriteRule ^$  index.php [L]
-
-RewriteRule ^.*$  index.php [L]
+RewriteRule !(\.png|\.svg)  index.php [L]

@@ -184,6 +184,14 @@
     <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
   </owl:Class>
 
+  <owl:Class rdf:about="http://vocab.org/transit/terms/RouteStop">
+    <rdfs:label xml:lang="en">Route Stop</rdfs:label>
+    <rdfs:comment xml:lang="en">A location where passengers board or disembark from a transit vehicle for a specific route.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-08-06</dc:issued>
+  </owl:Class>
+
   <owl:Class rdf:about="http://vocab.org/transit/terms/Schedule">
     <rdfs:label xml:lang="en">Schedule</rdfs:label>
     <rdfs:comment xml:lang="en">A public transport schedule that applies for one or more routes.</rdfs:comment>
@@ -292,15 +300,6 @@
     <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
   </rdf:Property>
  
-  <rdf:Property rdf:about="http://vocab.org/transit/terms/route">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
-    <rdfs:label xml:lang="en">Route</rdfs:label>
-    <rdfs:comment xml:lang="en">A public transportation route operated by this agency.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/Agency"/>
-    <rdfs:range rdf:resource="http://vocab.org/transit/terms/Route"/>
-    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
-    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
-  </rdf:Property>
 
   <!-- 
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -327,6 +326,9 @@
     <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
     <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
   </rdf:Property>
+
+
+
 
   <!-- 
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -371,21 +373,30 @@
     <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
   </rdf:Property>
 
-  <rdf:Property rdf:about="http://vocab.org/transit/terms/textColor">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
-    <rdfs:label xml:lang="en">Text Color</rdfs:label>
-    <rdfs:comment xml:lang="en">A legible color for text drawn against a background of the color associated with a route.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/Route"/>
-    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
-    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
-  </rdf:Property>
-
   <rdf:Property rdf:about="http://vocab.org/transit/terms/routeService">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
     <rdfs:label xml:lang="en">Route Service</rdfs:label>
     <rdfs:comment xml:lang="en">A service that operates on this route.</rdfs:comment>
     <rdfs:domain rdf:resource="http://vocab.org/transit/terms/Route"/>
     <rdfs:range rdf:resource="http://vocab.org/transit/terms/Service"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/routeStop">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">Route Stop</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a route to a particular stop and the sequence of that stop in the route.</rdfs:comment>
+    <rdfs:range rdf:resource="http://vocab.org/transit/terms/RouteStop"/>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-08-06</dc:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/textColor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:label xml:lang="en">Text Color</rdfs:label>
+    <rdfs:comment xml:lang="en">A legible color for text drawn against a background of the color associated with a route.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/Route"/>
     <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
     <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
   </rdf:Property>
@@ -435,11 +446,11 @@
   <rdf:Property rdf:about="http://vocab.org/transit/terms/route">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
     <rdfs:label xml:lang="en">Route</rdfs:label>
-    <rdfs:comment xml:lang="en">The route on which this service operates.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/Service"/>
+    <rdfs:comment xml:lang="en">A route associated with the given resource.</rdfs:comment>
     <rdfs:range rdf:resource="http://vocab.org/transit/terms/Route"/>
     <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
     <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+    <skos:historyNote rdf:value="Relaxed domain" dc:date="2011-08-06" dc:creator="Ian Davis"/>
   </rdf:Property>
 
   <rdf:Property rdf:about="http://vocab.org/transit/terms/headsign">
@@ -557,10 +568,10 @@
   <rdf:Property rdf:about="http://vocab.org/transit/terms/sequence">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
     <rdfs:label xml:lang="en">Sequence</rdfs:label>
-    <rdfs:comment xml:lang="en">A sequence number for this service stop. Sequence values are non-negative integers and increase along the service however they need not be consecutive.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://vocab.org/transit/terms/ServiceStop"/>
+    <rdfs:comment xml:lang="en">A sequence number for a stop along a route or service. Sequence values are non-negative integers and increase along the route or service however they need not be consecutive.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
     <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
+    <skos:historyNote rdf:value="Relaxed domain" dc:date="2011-08-06" dc:creator="Ian Davis"/>
   </rdf:Property>
 
   <rdf:Property rdf:about="http://vocab.org/transit/terms/distance">

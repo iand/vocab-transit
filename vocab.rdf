@@ -593,6 +593,33 @@
     <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-03-28</dc:issued>
   </rdf:Property>
 
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/icaoCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/identifier" />
+    <rdfs:label xml:lang="en">ICAO code</rdfs:label>
+    <rdfs:comment xml:lang="en">The code issued by the International Civil Aviation Authority to identify an airport or airline.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-01-25</dc:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/iataCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/identifier" />
+    <rdfs:label xml:lang="en">IATA code</rdfs:label>
+    <rdfs:comment xml:lang="en">The code issued by the International Air Transport Association to identify an airport.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-01-25</dc:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://vocab.org/transit/terms/callsign">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/identifier" />
+    <rdfs:label xml:lang="en">Callsign prefix</rdfs:label>
+    <rdfs:comment xml:lang="en">The callsign prefix used by an airline to identify itself to air traffic control.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://vocab.org/transit/terms/"/>
+    <st:term_status>unstable</st:term_status>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-01-25</dc:issued>
+  </rdf:Property>
 
   <!-- 
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
